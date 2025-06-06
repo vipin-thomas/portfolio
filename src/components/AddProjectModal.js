@@ -1,7 +1,7 @@
 // src/components/AddProjectModal.js
 import { useState } from 'react';
 
-export default function AddProjectModal({ isOpen, onClose }) {
+export default function AddProjectModal({ isOpen, onClose, onProjectAdded }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -25,12 +25,16 @@ export default function AddProjectModal({ isOpen, onClose }) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean)
+        })
       });
 
       if (res.ok) {
         setMessage('Project added successfully!');
         setFormData({ title: '', description: '', link: '' });
+	if (onProjectAdded) onProjectAdded();      
         setTimeout(() => {
           setMessage('');
           onClose();
@@ -58,7 +62,7 @@ export default function AddProjectModal({ isOpen, onClose }) {
             placeholder="Project Title"
             value={formData.title}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-black"
             required
           />
           <textarea
@@ -66,7 +70,7 @@ export default function AddProjectModal({ isOpen, onClose }) {
             placeholder="Project Description"
             value={formData.description}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-black"
             required
           />
           <input
@@ -75,13 +79,21 @@ export default function AddProjectModal({ isOpen, onClose }) {
             placeholder="Project Link"
             value={formData.link}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-black"
           />
-          <div className="flex justify-between">
+          <input
+            type="text"
+            name="tags"
+            placeholder="Project Tags (comma separated)"
+            value={formData.tags}
+            onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+            className="w-full border p-2 rounded text-black"
+          />
+	  <div className="flex justify-between">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
+              className="px-4 py-2 rounded bg-red-600 hover:bg-red-700"
             >
               Cancel
             </button>

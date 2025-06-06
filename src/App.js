@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import vtLogo from "./assets/vt-logo.png";
 import Projects from "./pages/Projects";
+import AdminLogin from "./pages/AdminLogin";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
 	  <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+	  <Route path="/admin-login" element={<AdminLogin />} />
         </Routes>
 
         {/* Footer */}
