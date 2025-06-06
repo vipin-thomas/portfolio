@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import AddProjectModal from "../components/AddProjectModal";
 import LoginPromptModal from "../components/LoginPromptModal";
 
@@ -8,7 +7,6 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [isPromptOpen, setPromptOpen] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
    fetchProjects();
