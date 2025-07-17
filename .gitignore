@@ -1,36 +1,36 @@
-# Node modules
+## Node modules
 node_modules/
 
-# Build output
+## Build output
 build/
 dist/
 
-# Logs
+## Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Environment variables
+## Environment variables
 .env
 .env.local
 .env.development
 .env.production
 .env.test
 
-# OS/System files
+## OS/System files
 .DS_Store
 Thumbs.db
 
-# IDE/editor configs
+## IDE/editor configs
 .vscode/
 .idea/
 *.swp
 
-# Tailwind cache (optional)
+## Tailwind cache (optional)
 .tailwind/
 
-# Misc
+## Misc
 coverage/
 *.log
 *.zip
