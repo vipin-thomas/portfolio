@@ -46,7 +46,7 @@ export default function Projects() {
   };
  
   const fetchProjects = () => {
-  fetch("/api/projects")
+  fetch("https://vipdevo.xyz/api/projects")
     .then((res) => res.json())
     .then((data) => {
       setProjects(data);
