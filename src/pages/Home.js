@@ -7,7 +7,7 @@ import docker from "../assets/docker.png";
 import aws from "../assets/aws.png";
 import kubernetes from "../assets/kubernetes.png";
 import terraform from "../assets/terraform.png";
-import jenkins from "../assets/jenkins.jpg";
+import jenkins from "../assets/jenkins.png";
 
 export default function Home() {
   return (
