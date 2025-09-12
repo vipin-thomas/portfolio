@@ -7,7 +7,7 @@ import docker from "../assets/docker.png";
 import aws from "../assets/aws.png";
 import kubernetes from "../assets/kubernetes.png";
 import terraform from "../assets/terraform.png";
-import ansible from "../assets/ansible.png";
+import jenkins from "../assets/jenkins.jpg";
 
 export default function Home() {
   return (
@@ -57,7 +57,7 @@ export default function Home() {
 
       {/* Bottom Icons */}
       <div className="absolute bottom-4 w-full flex justify-center gap-6 z-10">
-        {[linux, github, docker, aws, kubernetes, terraform, ansible].map((icon, index) => (
+        {[linux, github, docker, aws, kubernetes, terraform, jenkins].map((icon, index) => (
           <img
             key={index}
             src={icon}
